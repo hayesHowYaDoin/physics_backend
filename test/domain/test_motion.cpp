@@ -5,6 +5,8 @@
 
 #include <gtest/gtest.h>
 
+#include <tuple>
+
 static constexpr auto REQUIRED_PRECISION {0.000'001f};
 
 TEST(MotionTest, NextPosition)
@@ -75,7 +77,7 @@ TEST(MotionTest, AccelerationMassZero)
     constexpr auto mass {0.0_kg};
 
     EXPECT_THROW(
-        motion::acceleration<mpssUnits>(force, mass),
+        std::ignore = motion::acceleration<mpssUnits>(force, mass),
         std::invalid_argument);
 }
 
@@ -89,6 +91,6 @@ TEST(MotionTest, AccelerationMassNegative)
     constexpr auto mass {-10.0_kg};
 
     EXPECT_THROW(
-        motion::acceleration<mpssUnits>(force, mass),
+        std::ignore = motion::acceleration<mpssUnits>(force, mass),
         std::invalid_argument);
 }

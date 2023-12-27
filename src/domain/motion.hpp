@@ -18,11 +18,11 @@ PositionVector2D<L> nextPosition(
 }
 
 template <core::IsVelocityUnit V, core::IsAccelerationUnit A, core::IsTimeUnit T>
-[[noexcept]] constexpr
+constexpr
 VelocityVector2D<V> nextVelocity(
     VelocityVector2D<V> const& velocity,
     AccelerationVector2D<A> const& acceleration,
-    T const& dt) noexcept
+    T const& dt)
 {
     return velocity + acceleration * dt;
 }

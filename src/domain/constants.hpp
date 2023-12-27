@@ -6,8 +6,7 @@
 namespace domain::constants
 {
 
-[[nodiscard]] constexpr
-auto const G {units::acceleration::meters_per_second_squared<double> {-9.81}};
+constexpr auto G {units::acceleration::meters_per_second_squared<double> {-9.81}};
 
 } // namespace domain::constants
 
