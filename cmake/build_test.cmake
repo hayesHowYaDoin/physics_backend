@@ -1,5 +1,5 @@
 function(build_test)
-    message("${CMAKE_CURRENT_SOURCE_DIR}: Building tests...")
+    message("Building tests...")
 
     # Suppress GTest warnings
     cmake_policy(SET CMP0003 NEW)

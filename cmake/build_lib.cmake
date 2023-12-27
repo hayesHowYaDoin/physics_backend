@@ -11,7 +11,9 @@ function(build_physics_backend)
             ${CMAKE_SOURCE_DIR}/src
     )
 
-    # Silence warnings
+    find_package(SFML 2.5 REQUIRED COMPONENTS network audio graphics window system)
+
+    # Silence warnings from libraries
     if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         target_compile_options(units INTERFACE -w)
     elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
@@ -20,6 +22,10 @@ function(build_physics_backend)
 
     target_link_libraries(physics_backend
         INTERFACE
-            units::units)
+            units::units
+            sfml-system
+            sfml-window
+            sfml-graphics
+    )
             
 endfunction()

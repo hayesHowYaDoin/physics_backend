@@ -53,6 +53,13 @@ RUN cmake -DCMAKE_CXX_FLAGS=-std=c++1z   -DCMAKE_BUILD_TYPE=Release -DBUILD_SHAR
 WORKDIR "/"
 RUN rm -rf googletest
 
+# SFML
+RUN echo "************************ SFML ************************"
+RUN apt-get install -y libsfml-dev x11-xserver-utils
+ENV DISPLAY=172.19.48.1:0.0
+ENV LIBGL_ALWAYS_INDIRECT=0
+RUN xhost local:root
+
 # PlantUML Dependencies (Java and Graphviz)
 RUN echo "************************ PlantUML ************************"
 RUN apt-get install -y openjdk-11-jdk

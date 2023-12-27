@@ -1,4 +1,5 @@
 include(cmake/build_lib.cmake)
+include(cmake/build_sim.cmake)
 include(cmake/build_test.cmake)
 
 cmake_minimum_required(VERSION 3.28 FATAL_ERROR)
@@ -20,6 +21,7 @@ else()
 endif()
 
 build_physics_backend()
+build_simulations()
 
 option(BUILD_TESTING "Build tests" OFF)
 
